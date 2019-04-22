@@ -15,6 +15,7 @@ public:
 	void SetPpos(const VECTOR2 & Ppos);
 	void SetEpos(const VECTOR2 & Epos);
 	void SetEListSize(int size);
+	VECTOR2 GetPpos();
 
 	bool EnemyDeath();						//	´ÈÐ°‚ÌÀÞÒ°¼Þ—p”»’è
 	bool PlayerDamage();					//	ÌßÚ²Ô°‚ÌÀÞÒ°¼Þ—p”»’è

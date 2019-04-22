@@ -122,53 +122,62 @@ void Enemy::SetMove()
 		animCnt++;
 	}
 
-	if (moveLR)
+	int InCamera = lpCharHit.GetPpos().x - pos.x;
+	if (InCamera < 0)
 	{
-		SetAnim("•à‚­");
-		if (!lpCharHit.PlayerDamage())
+		InCamera = -InCamera;
+	}
+	//	ƒJƒƒ‰“à‚É‚¢‚½‚çs“®‚·‚é
+	if (InCamera <= VIEW_AREA_CNT_X * CHIP_SIZE)
+	{
+		if (moveLR)
 		{
-			if (deathFlag)
+			SetAnim("•à‚­");
+			if (!lpCharHit.PlayerDamage())
 			{
-				SetAnim("’×‚ê‚½");
-				moveLR = false;
-				//deathCnt++;
-				//if (deathCnt == 30)
+				if (deathFlag)
 				{
-					death = true;
-				}
-			}
-			else
-			{
-				if (dirLR == DIR_L)
-				{
-					dirLR = DIR_L;
-					if (!Contact(dirLR) && pos.x >= 0)
+					SetAnim("’×‚ê‚½");
+					moveLR = false;
+					//deathCnt++;
+					//if (deathCnt == 30)
 					{
-						pos.x -= speed;
-					}
-					else
-					{
-						dirLR = DIR_R;
-					}
-					if (skyflag && !CheckCorrect())
-					{
-						pos.x -= speed;
+						death = true;
 					}
 				}
-				else if (dirLR == DIR_R)
+				else
 				{
-					dirLR = DIR_R;
-					if (!Contact(dirLR) && pos.x <= (GAME_AREA_CNT_X - 1) * CHIP_SIZE)
-					{
-						pos.x += speed;
-					}
-					else
+					if (dirLR == DIR_L)
 					{
 						dirLR = DIR_L;
+						if (!Contact(dirLR) && pos.x >= 0)
+						{
+							pos.x -= speed;
+						}
+						else
+						{
+							dirLR = DIR_R;
+						}
+						if (skyflag && !CheckCorrect())
+						{
+							pos.x -= speed;
+						}
 					}
-					if (skyflag && !CheckCorrect())
+					else if (dirLR == DIR_R)
 					{
-						pos.x += speed;
+						dirLR = DIR_R;
+						if (!Contact(dirLR) && pos.x <= (GAME_AREA_CNT_X - 1) * CHIP_SIZE)
+						{
+							pos.x += speed;
+						}
+						else
+						{
+							dirLR = DIR_L;
+						}
+						if (skyflag && !CheckCorrect())
+						{
+							pos.x += speed;
+						}
 					}
 				}
 			}

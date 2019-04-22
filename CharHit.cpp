@@ -36,6 +36,11 @@ void CharHit::SetEListSize(int size)
 	EListSize = size;
 }
 
+VECTOR2 CharHit::GetPpos()
+{
+	return Ppos;
+}
+
 bool CharHit::EnemyDeath()
 {
 	//	posx‚Ì‹——£

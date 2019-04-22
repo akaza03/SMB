@@ -1,4 +1,4 @@
-#include "DxLib.h"
+#include <DxLib.h>
 #include "VECTOR2.h"
 #include "MapCtl.h"
 #include "CharHit.h"

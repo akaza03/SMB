@@ -1,4 +1,4 @@
-#include "DxLib.h"
+#include <DxLib.h>
 #include "ImageMng.h"
 #include "MapCtl.h"
 #include "TitleScene.h"

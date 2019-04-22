@@ -1,4 +1,4 @@
-#include "DxLib.h"
+#include <DxLib.h>
 #include "ImageMng.h"
 
 std::unique_ptr<ImageMng, ImageMng::ImageMngDeleter> ImageMng::s_Instance(new ImageMng());

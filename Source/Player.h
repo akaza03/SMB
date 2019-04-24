@@ -8,6 +8,8 @@ class Player:
 public:
 	Player(const char(&_keyData)[256],const char(&_keyDataOld)[256],VECTOR2(chipOffset));
 	~Player();
+	void SetEDFlag();
+	bool GetEDFlag();
 	bool Update();
 	virtual void GetKeyData();
 	void Draw();
@@ -22,6 +24,7 @@ private:
 	bool skyflag;						//	‹ó’†‚É‚¢‚é‚©‚Ç‚¤‚©‚ÌÌ×¸Þ
 	bool jumpNow = false;				//	¼Þ¬ÝÌß’†‚©‚ÌÌ×¸Þ
 	bool deathFlag;
+	bool EnemyDeathFlag;				//	´ÈÐ°Œ‚”jŽž‚Ì¼Þ¬ÝÌßÌ×¸Þ
 
 	float Vy;
 

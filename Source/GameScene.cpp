@@ -45,9 +45,19 @@ scene_ptr GameScene::Update(scene_ptr scn)
 	lpMapCtl.MapDraw();
 
 	//	XVˆ—
+	(*player)->Update();
 	auto itr = enemyList.begin();
 	while (itr != enemyList.end())
 	{
+		
+
+		if (!(*player)->GetEDFlag())
+		{
+			if ((*itr)->TempDeath())
+			{
+				(*player)->SetEDFlag();
+			}
+		}
 		(*itr)->Update();
 		//	Ž€–S‚µ‚½ê‡‚Í‘ÎÛ‚ðíœ‚µAŽŸ‚Ì—v‘f‚ð•Ô‚·
 		if ((*itr)->GetDeath())
@@ -60,8 +70,6 @@ scene_ptr GameScene::Update(scene_ptr scn)
 		}
 		lpCharHit.SetEListSize(enemyList.size());
 	}
-
-	(*player)->Update();
 
 	if ((*player)->GetDeath())
 	{

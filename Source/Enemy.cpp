@@ -8,6 +8,8 @@ Enemy::Enemy(const char(&_keyData)[256], const char(&_keyDataOld)[256], VECTOR2(
 {
 	skyflag = false;
 	deathCnt = 0;
+	deathFlag = false;
+	TempDeathFlag = false;
 	Cnt = 0;
 	Vy = 0;
 	dirLR = DIR_L;
@@ -18,6 +20,11 @@ Enemy::Enemy(const char(&_keyData)[256], const char(&_keyDataOld)[256], VECTOR2(
 Enemy::~Enemy()
 {
 	lpCharHit.SetEpos(VECTOR2(0,0));
+}
+
+bool Enemy::TempDeath()
+{
+	return TempDeathFlag;
 }
 
 bool Enemy::Update()
@@ -111,7 +118,10 @@ bool Enemy::Contact(DIR_LR dir)
 
 void Enemy::SetMove()
 {
-	bool deathFlag = lpCharHit.EnemyDeath();
+	if (!deathFlag)
+	{
+		deathFlag = lpCharHit.EnemyDeath();
+	}
 
 	//	èdóÕ
 	Gravity();
@@ -130,58 +140,56 @@ void Enemy::SetMove()
 	//	ÉJÉÅÉâì‡Ç…Ç¢ÇΩÇÁçsìÆÇ∑ÇÈ
 	if (InCamera <= VIEW_AREA_CNT_X * CHIP_SIZE)
 	{
-		if (moveLR)
+		SetAnim("ï‡Ç≠");
+		if (deathFlag)
 		{
-			SetAnim("ï‡Ç≠");
+			SetAnim("í◊ÇÍÇΩ");
+			TempDeathFlag = true;
+			deathCnt++;
+			if (deathCnt == 30)
+			{
+				death = true;
+			}
+		}
+		else
+		{
 			if (!lpCharHit.PlayerDamage())
 			{
-				if (deathFlag)
+				if (dirLR == DIR_L)
 				{
-					SetAnim("í◊ÇÍÇΩ");
-					moveLR = false;
-					//deathCnt++;
-					//if (deathCnt == 30)
+					dirLR = DIR_L;
+					if (!Contact(dirLR) && pos.x >= 0)
 					{
-						death = true;
+						pos.x -= speed;
 					}
-				}
-				else
-				{
-					if (dirLR == DIR_L)
-					{
-						dirLR = DIR_L;
-						if (!Contact(dirLR) && pos.x >= 0)
-						{
-							pos.x -= speed;
-						}
-						else
-						{
-							dirLR = DIR_R;
-						}
-						if (skyflag && !CheckCorrect())
-						{
-							pos.x -= speed;
-						}
-					}
-					else if (dirLR == DIR_R)
+					else
 					{
 						dirLR = DIR_R;
-						if (!Contact(dirLR) && pos.x <= (GAME_AREA_CNT_X - 1) * CHIP_SIZE)
-						{
-							pos.x += speed;
-						}
-						else
-						{
-							dirLR = DIR_L;
-						}
-						if (skyflag && !CheckCorrect())
-						{
-							pos.x += speed;
-						}
+					}
+					if (skyflag && !CheckCorrect())
+					{
+						pos.x -= speed;
+					}
+				}
+				else if (dirLR == DIR_R)
+				{
+					dirLR = DIR_R;
+					if (!Contact(dirLR) && pos.x <= (GAME_AREA_CNT_X - 1) * CHIP_SIZE)
+					{
+						pos.x += speed;
+					}
+					else
+					{
+						dirLR = DIR_L;
+					}
+					if (skyflag && !CheckCorrect())
+					{
+						pos.x += speed;
 					}
 				}
 			}
 		}
+
 	}
 }
 

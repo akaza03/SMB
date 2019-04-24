@@ -8,6 +8,7 @@ class Enemy :
 public:
 	Enemy(const char(&_keyData)[256], const char(&_keyDataOld)[256], VECTOR2(chipOffset));
 	~Enemy();
+	bool TempDeath();
 	bool Update();
 	void Draw();
 private:
@@ -22,5 +23,7 @@ private:
 	float Vy;
 	int Cnt;
 	int deathCnt;						//	€–S‰‰o—p
+	bool deathFlag;
+	bool TempDeathFlag;					//	‰¼€
 };
 

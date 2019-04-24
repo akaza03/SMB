@@ -13,7 +13,7 @@ public:
 		return *s_Instance;
 	}
 	void SetPpos(const VECTOR2 & Ppos);
-	void SetEpos(const VECTOR2 & Epos);
+	void SetEpos(const VECTOR2 & Epos);		//	¥»–∞ÇÃç¿ïWÿΩƒÇ÷ÇÃí«â¡
 	void SetEListSize(int size);
 	VECTOR2 GetPpos();
 

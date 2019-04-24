@@ -7,6 +7,7 @@ Player::Player(const char(&_keyData)[256], const char(&_keyDataOld)[256], VECTOR
 {
 	skyflag = false;
 	deathFlag = false;
+	EnemyDeathFlag = false;
 	Vy = 0;
 	deathCnt = 0;
 	dirLR = DIR_R;
@@ -16,6 +17,16 @@ Player::Player(const char(&_keyData)[256], const char(&_keyDataOld)[256], VECTOR
 
 Player::~Player()
 {
+}
+
+void Player::SetEDFlag()
+{
+	EnemyDeathFlag = true;
+}
+
+bool Player::GetEDFlag()
+{
+	return EnemyDeathFlag;
 }
 
 
@@ -41,6 +52,7 @@ void Player::Gravity()
 		{
 			pos.y -= Vy;
 			skyflag = true;
+			EnemyDeathFlag = false;
 		}
 		else
 		{
@@ -175,11 +187,12 @@ void Player::SetMove(void)
 		else
 		{
 			//	“G‚ð“¥‚ñ‚¾Žž‚ÉŒy‚­¼Þ¬ÝÌß
-			if (lpCharHit.EnemyDeath())
+			if (EnemyDeathFlag)
 			{
 				SetAnim("ƒWƒƒƒ“ƒv");
 				Vy = 5;
 				pos.y -= Vy;
+				jumpNow = true;
 			}
 
 			//	¼Þ¬ÝÌßŠJŽn

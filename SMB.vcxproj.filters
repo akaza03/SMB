@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Source\CharHit.cpp">
+      <Filter>ソースファイル\キャラクター</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy.cpp">
+      <Filter>ソースファイル\キャラクター</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Obj.cpp">
+      <Filter>ソースファイル\キャラクター</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>ソースファイル\キャラクター</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BaseScene.cpp">
+      <Filter>ソースファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameScene.cpp">
+      <Filter>ソースファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameTask.cpp">
+      <Filter>ソースファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TitleScene.cpp">
+      <Filter>ソースファイル\シーン</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Camera.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ImageMng.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MapCtl.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VECTOR2.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\CharHit.h">
+      <Filter>ヘッダーファイル\キャラクター</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>ヘッダーファイル\キャラクター</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Obj.h">
+      <Filter>ヘッダーファイル\キャラクター</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
+      <Filter>ヘッダーファイル\キャラクター</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BaseScene.h">
+      <Filter>ヘッダーファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameScene.h">
+      <Filter>ヘッダーファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameTask.h">
+      <Filter>ヘッダーファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TitleScene.h">
+      <Filter>ヘッダーファイル\シーン</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Camera.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ImageMng.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\main.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapCtl.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VECTOR2.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ヘッダーファイル">
+      <UniqueIdentifier>{2d3148dc-55e7-4198-a91a-08bedd8f2056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル">
+      <UniqueIdentifier>{9bb7b4fb-6b24-40ae-8c50-13b5c1e6d533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\シーン">
+      <UniqueIdentifier>{a1b4dbcc-d37e-434b-969f-ee40296b7050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\シーン">
+      <UniqueIdentifier>{56ec8fc1-2448-431d-95eb-387dd97e38d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\キャラクター">
+      <UniqueIdentifier>{1325ebe3-0bd1-4261-8973-64be1d82c2ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\キャラクター">
+      <UniqueIdentifier>{7a6f2653-b522-44da-98c2-98e9d37cf19f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

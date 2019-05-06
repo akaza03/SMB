@@ -84,6 +84,11 @@ scene_ptr GameScene::Update(scene_ptr scn)
 		(*itr)->Draw();
 	}
 	(*player)->Draw();
+	
+	SetFontSize(34);
+	DrawFormatString(300, 0, GetColor(255, 255, 255), "~%d", (*player)->GetGoldX());
+	DrawFormatString(355, 0, GetColor(255, 255, 255), "%d", (*player)->GetGoldO());
+	DrawGraph(265, 0, IMAGE_ID("image/GOLD.png")[0], true);
 
 	ScreenFlip();
 	return scn;

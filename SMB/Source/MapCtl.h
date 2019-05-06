@@ -66,6 +66,7 @@ public:
 	bool LoadMap(std::string filename);
 	const VECTOR2 GetDrawOffset();
 	void SetCameraPos(VECTOR2 pos);
+	void SetMap(CHIP_TYPE type, VECTOR2 pos);
 
 private:
 	struct MapCtlDeleter

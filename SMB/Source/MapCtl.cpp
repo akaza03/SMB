@@ -185,3 +185,9 @@ void MapCtl::SetCameraPos(VECTOR2 pos)
 {
 	cameraPos = pos;
 }
+
+void MapCtl::SetMap(CHIP_TYPE type, VECTOR2 pos)
+{
+	VECTOR2 SetPos = pos / CHIP_SIZE;
+	mapID[SetPos.y][SetPos.x] = type;
+}

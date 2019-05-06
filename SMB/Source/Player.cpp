@@ -9,6 +9,8 @@ Player::Player(const char(&_keyData)[256], const char(&_keyDataOld)[256], VECTOR
 	deathFlag = false;
 	EnemyDeathFlag = false;
 	Vy = 0;
+	GoldCntX = 0;
+	GoldCntO = 0;
 	deathCnt = 0;
 	dirLR = DIR_R;
 	SetAnim("ï‡Ç≠");
@@ -141,6 +143,26 @@ bool Player::Contact(DIR_LR dir)
 	return false;
 }
 
+void Player::GoldContact()
+{
+	CHIP_TYPE cpTypeC;				//	íÜêS
+	cpTypeC = lpMapCtl.GetMapData(pos + VECTOR2(CHIP_SIZE / 2, CHIP_SIZE / 2), GP_BG);
+
+	if(cpTypeC == TYPE_GOLD)
+	{
+		lpMapCtl.SetMap(TYPE_BLANK, pos + VECTOR2(CHIP_SIZE / 2, CHIP_SIZE / 2));
+		if (GoldCntO < 9)
+		{
+			GoldCntO++;
+		}
+		else
+		{
+			GoldCntO = 0;
+			GoldCntX++;
+		}
+	}
+}
+
 bool Player::EnemyContact()
 {
 	return false;
@@ -152,6 +174,17 @@ bool Player::Update(void)
 	SetMove();
 	return false;
 }
+
+int Player::GetGoldX()
+{
+	return GoldCntX;
+}
+
+int Player::GetGoldO()
+{
+	return GoldCntO;
+}
+
 
 void Player::GetKeyData(void)
 {
@@ -172,6 +205,8 @@ void Player::SetMove(void)
 
 	if (!deathFlag)
 	{
+		GoldContact();
+
 		//	éÄñSèàóù
 		if (lpCharHit.PlayerDamage())
 		{

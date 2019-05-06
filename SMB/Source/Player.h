@@ -11,6 +11,8 @@ public:
 	void SetEDFlag();
 	bool GetEDFlag();
 	bool Update();
+	int GetGoldX();
+	int GetGoldO();
 	virtual void GetKeyData();
 	void Draw();
 private:
@@ -18,6 +20,7 @@ private:
 	bool skyContact();					//	空中用判定
 	bool CheckCorrect();				//	障害物と重なっているかのﾁｪｯｸ
 	bool Contact(DIR_LR dir);			//	壁にぶつかっているかのﾁｪｯｸ
+	void GoldContact();					//	コインとの当たり判定
 	bool EnemyContact();
 	void SetMove();
 	bool initAnim();
@@ -28,5 +31,7 @@ private:
 
 	float Vy;
 
+	int GoldCntX;						//	取得ｺｲﾝ数10の位
+	int GoldCntO;						//	取得ｺｲﾝ数1の位
 	int deathCnt;						//	死亡演出用
 };

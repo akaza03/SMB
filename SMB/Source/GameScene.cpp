@@ -21,6 +21,7 @@ GameScene::~GameScene()
 
 void GameScene::Init()
 {
+	StopSoundFile();
 	enemyList.clear();
 	camera = std::make_unique<Camera>();
 	lpMapCtl.LoadMap("data/map.csv");

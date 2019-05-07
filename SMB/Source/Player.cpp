@@ -150,6 +150,7 @@ void Player::GoldContact()
 
 	if(cpTypeC == TYPE_GOLD)
 	{
+		PlaySoundFile("sound/ƒRƒCƒ“‰¹.mp3", DX_PLAYTYPE_BACK);
 		lpMapCtl.SetMap(TYPE_BLANK, pos + VECTOR2(CHIP_SIZE / 2, CHIP_SIZE / 2));
 		if (GoldCntO < 9)
 		{
@@ -210,6 +211,11 @@ void Player::SetMove(void)
 		//	Ž€–Sˆ—
 		if (lpCharHit.PlayerDamage())
 		{
+			if (!deathCnt)
+			{
+				StopSoundFile();
+				PlaySoundFile("sound/Ž€–S‰¹.wav", DX_PLAYTYPE_BACK);
+			}
 			SetAnim("Ž€–S");
 			deathCnt++;
 			if (deathCnt == 30)
@@ -224,6 +230,7 @@ void Player::SetMove(void)
 			//	“G‚ð“¥‚ñ‚¾Žž‚ÉŒy‚­¼Þ¬ÝÌß
 			if (EnemyDeathFlag)
 			{
+				PlaySoundFile("sound/“¥‚ñ‚¾‰¹.mp3", DX_PLAYTYPE_BACK);
 				SetAnim("ƒWƒƒƒ“ƒv");
 				Vy = 5;
 				pos.y -= Vy;
@@ -233,6 +240,7 @@ void Player::SetMove(void)
 			//	¼Þ¬ÝÌßŠJŽn
 			if (!skyflag && !jumpNow && keyData[KEY_INPUT_UP] && !keyDataOld[KEY_INPUT_UP])
 			{
+				PlaySoundFile("sound/ƒWƒƒƒ“ƒv‰¹.wav", DX_PLAYTYPE_BACK);
 				SetAnim("ƒWƒƒƒ“ƒv");
 				if (!skyContact())
 				{
@@ -308,6 +316,11 @@ void Player::SetMove(void)
 	//	ÌßÚ²Ô°‚Ì”jŠü
 	if (pos.y > (VIEW_AREA_CNT_Y + 20) * CHIP_SIZE)
 	{
+		if (!deathFlag)
+		{
+			StopSoundFile();
+			PlaySoundFile("sound/Ž€–S‰¹.wav", DX_PLAYTYPE_NORMAL);
+		}
 		death = true;
 	}
 }

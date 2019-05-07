@@ -5,6 +5,7 @@
 
 TitleScene::TitleScene()
 {
+	StopSoundFile();
 	blinkCnt = 0;
 	MushroomPosY = 380;
 }
